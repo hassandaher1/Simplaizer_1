@@ -9,7 +9,7 @@ const EbookPage = ({ onOpenChat }) => {
   const ebook = {
     title: "L'IA pour les PME : Le Guide Ultime 2025",
     subtitle: "Comment automatiser le plus possible pour atteindre votre plein potentiel avec l'IA quand on est une PME en 2025.",
-    coverImage: "https://images.unsplash.com/photo-1688646390068-e7a1bed0f6e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWklMjBlYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
     description: "Ce guide complet de plus de 200 pages vous dévoile les stratégies, outils et cas d'usage concrets pour intégrer l'IA dans votre PME. Apprenez à automatiser vos tâches, optimiser vos processus, améliorer votre relation client et prendre des décisions éclairées grâce à l'intelligence artificielle. Un indispensable pour tout dirigeant de PME souhaitant rester compétitif à l'ère de l'IA.",
     chapters: [
       "Introduction : L'IA, une révolution à la portée des PME",
@@ -61,6 +61,7 @@ const EbookPage = ({ onOpenChat }) => {
           >
             <img src={ebook.coverImage} alt={`Couverture de l'ebook ${ebook.title}`} className="rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-300"/>
           </motion.div>
+
           <motion.div 
             className="lg:col-span-3"
             initial={{ opacity: 0, x: 50 }}
