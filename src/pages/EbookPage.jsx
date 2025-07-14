@@ -9,7 +9,7 @@ const EbookPage = ({ onOpenChat }) => {
   const ebook = {
     title: "L'IA pour les PME : Le Guide Ultime 2025",
     subtitle: "Comment automatiser le plus possible pour atteindre votre plein potentiel avec l'IA quand on est une PME en 2025.",
-    coverImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+    coverImage: "https://i.ibb.co/zT0hMqBb/e-book-cover.png",
     description: "Ce guide complet de plus de 200 pages vous dévoile les stratégies, outils et cas d'usage concrets pour intégrer l'IA dans votre PME. Apprenez à automatiser vos tâches, optimiser vos processus, améliorer votre relation client et prendre des décisions éclairées grâce à l'intelligence artificielle. Un indispensable pour tout dirigeant de PME souhaitant rester compétitif à l'ère de l'IA.",
     chapters: [
       "Introduction : L'IA, une révolution à la portée des PME",
