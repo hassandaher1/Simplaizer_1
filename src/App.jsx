@@ -17,33 +17,10 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
-// ✅ Carrousel logos
-const PartnerCarousel = ({ partners }) => {
-  return (
-    <div className="carousel-wrapper">
-      <div className="carousel-track">
-        {partners.map((partner, index) => (
-          <a key={index} href={partner.link} target="_blank" rel="noopener noreferrer">
-            <img src={partner.logoUrl} alt={partner.name} title={partner.name} />
-          </a>
-        ))}
-        {partners.map((partner, index) => (
-          <a key={`clone-${index}`} href={partner.link} target="_blank" rel="noopener noreferrer">
-            <img src={partner.logoUrl} alt={`${partner.name} clone`} title={partner.name} />
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [session, setSession] = useState(null);
-
-  const robotImageUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3f0d21ad-d99e-4b58-baee-31a09e6cc087/54f48359ee7c9b1f11d6f717c4a56609.png";
-  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3f0d21ad-d99e-4b58-baee-31a09e6cc087/5e79b037b1b6042515f13fc0038e0538.png";
 
   const partners = [
     { name: 'ChatGPT', logoUrl: 'https://example.com/logo-chatgpt.png', link: 'https://www.openai.com/chatgpt' },
@@ -60,48 +37,20 @@ const App = () => {
     { name: 'Notion', logoUrl: 'https://example.com/logo-notion.png', link: 'https://www.notion.so' }
   ];
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (_event === 'SIGNED_IN') {
-        toast({ title: "Connexion réussie!", description: "Bienvenue sur SimplAizer." });
-      }
-      if (_event === 'SIGNED_OUT') {
-        toast({ title: "Déconnexion réussie.", description: "À bientôt!" });
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   const testimonials = [
     {
       name: "Catherine Fasang",
       company: "Restaurant Chromosome",
       text: "Bravo à vous deux, cela colle parfaitement à ce que nous voulons, du sur mesure !",
       rating: 5,
-      image: "https://images.app.goo.gl/sXDgfpnrF3ouPigm9"
+      image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
     },
     {
       name: "MVDP",
       company: "Consulting Plus",
       text: "L'équipe SimplAizer a transformé nos processus. Nous gagnons 15h par semaine !",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
+      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce"
     },
     {
       name: "Sophie Laurent",
@@ -117,19 +66,19 @@ const App = () => {
       id: "consulting",
       icon: "Brain",
       title: "Consulting IA Stratégique",
-      description: "Audit complet et feuille de route IA personnalisée pour maximiser votre ROI.",
+      description: "Audit complet et feuille de route IA personnalisée pour maximiser votre ROI."
     },
     {
       id: "automation",
       icon: "Settings",
       title: "Automatisations et agent IA Sur Mesure",
-      description: "Développement d'automatisations intelligentes avec Make/n8n pour optimiser vos workflows.",
+      description: "Développement d'automatisations intelligentes avec Make/n8n pour optimiser vos workflows."
     },
     {
       id: "custom-",
       icon: "Zap",
-      title: " Infrastructures Personnalisées",
-      description: "Développement d'une infrastructure IA sur mesure pour une application métier unique.",
+      title: "Infrastructures Personnalisées",
+      description: "Développement d'une infrastructure IA sur mesure pour une application métier unique."
     }
   ];
 
@@ -153,17 +102,33 @@ const App = () => {
       name: "Hassan DAHER",
       role: "Expert IA & Co-fondateur",
       bio: "Hassan est passionné par la transformation digitale des PME grâce à l'IA et automatisation.",
-      image: "https://media.licdn.com/.../Hassan-image.jpg"
+      image: "https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto"
     },
     {
       name: "Nathan GOUTAGNY",
       role: "Expert Automatisation & Co-fondateur",
-      bio: "Nathan est un magicien de l'automatisation, spécialisé dans la création de workflows complexes.",
-      image: "https://media.licdn.com/.../Nathan-image.jpg"
+      bio: "Nathan est un magicien de l'automatisation, spécialisé dans les workflows complexes.",
+      image: "https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto"
     }
   ];
 
   const ourStory = "Fondée en 2023 par Hassan DAHER & Nathan GOUTAGNY, SimplAizer est née d'une conviction profonde : ...";
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => setSession(session));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (_event === 'SIGNED_IN') toast({ title: "Connexion réussie!", description: "Bienvenue sur SimplAizer." });
+      if (_event === 'SIGNED_OUT') toast({ title: "Déconnexion réussie.", description: "À bientôt!" });
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => setMousePosition({ x: e.clientX, y: e.clientY });
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const handleOpenChat = () => {
     setIsChatOpen(true);
@@ -180,20 +145,50 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const renderPartner = (partner, index) => (
+    <a key={index} href={partner.link} target="_blank" rel="noopener noreferrer">
+      <img src={partner.logoUrl} alt={partner.name} title={partner.name} className="h-16 object-contain" />
+    </a>
+  );
+
+  const renderTeam = () => (
+    <div className="grid md:grid-cols-2 gap-12">
+      {teamMembers.map((member, index) => (
+        <div key={index} className="text-center">
+          <img src={member.image} alt={member.name} className="w-28 h-28 rounded-full mx-auto mb-4 object-cover" />
+          <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+          <p className="text-blue-400 text-sm mb-2">{member.role}</p>
+          <p className="text-gray-300 text-sm max-w-xs mx-auto">{member.bio}</p>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <Router>
       <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden relative">
         <motion.div
           className="pointer-events-none fixed inset-0 z-[999] transition duration-300"
-          style={{
-            background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
-          }}
+          style={{ background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)` }}
         />
         <Toaster />
-        <Navbar onOpenChat={handleOpenChat} session={session} logoUrl={logoUrl} />
+        <Navbar onOpenChat={handleOpenChat} />
         <main className="pt-20">
           <Routes>
-            <Route path="/" element={<HomePage partners={partners.map(p => p.name)} services={services} testimonials={testimonials} faqItems={faqItems} ourStory={ourStory} />} />
+            <Route path="/" element={
+              <HomePage
+                onOpenChat={handleOpenChat}
+                partners={partners}
+                testimonials={testimonials}
+                services={services}
+                faqItems={faqItems}
+                teamMembers={teamMembers}
+                ourStory={ourStory}
+                robotImageUrl="https://cdn.midjourney.com/123456.jpg"
+                renderPartner={renderPartner}
+                renderTeam={renderTeam}
+              />
+            } />
             <Route path="/solutions/prestations" element={<ServicesPage />} />
             <Route path="/solutions/produits" element={<ProductsPage />} />
             <Route path="/solutions" element={<Navigate to="/solutions/prestations" replace />} />
@@ -203,12 +198,9 @@ const App = () => {
             <Route path="/clients" element={<CaseStudiesPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-
-          {/* ✅ Carrousel */}
-          <PartnerCarousel partners={partners} />
         </main>
         <Footer />
-        <ChatWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} agentAvatar={robotImageUrl} />
+        <ChatWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
         {!isChatOpen && (
           <motion.button
             initial={{ scale: 0, y: 50 }}
