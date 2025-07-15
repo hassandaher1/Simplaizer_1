@@ -18,3 +18,46 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+
+/* === Carrousel de logos partenaires === */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 10px 0;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.carousel-track img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-track img {
+    height: 70px;
+    width: 70px;
+    margin: 0 10px;
+  }
+}

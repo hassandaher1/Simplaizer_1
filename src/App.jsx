@@ -17,22 +17,50 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
+// Carrousel de Logos
+const PartnerCarousel = ({ partners }) => (
+  <div className="carousel-wrapper">
+    <div className="carousel-track">
+      {partners.map((partner, index) => (
+        <a key={index} href={partner.link} target="_blank" rel="noopener noreferrer">
+          <img src={partner.logoUrl} alt={partner.name} title={partner.name} />
+        </a>
+      ))}
+      {partners.map((partner, index) => (
+        <a key={`clone-${index}`} href={partner.link} target="_blank" rel="noopener noreferrer">
+          <img src={partner.logoUrl} alt={`${partner.name} clone`} title={partner.name} />
+        </a>
+      ))}
+    </div>
+  </div>
+);
+
 const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [session, setSession] = useState(null);
 
-  const robotImageUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3f0d21ad-d99e-4b58-baee-31a09e6cc087/54f48359ee7c9b1f11d6f717c4a56609.png";
-  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/3f0d21ad-d99e-4b58-baee-31a09e6cc087/5e79b037b1b6042515f13fc0038e0538.png";
+  const partners = [
+    { name: 'ChatGPT', logoUrl: 'https://cdn.iconscout.com/icon/free/png-256/chatgpt-3-10262703.png', link: 'https://openai.com/chatgpt' },
+    { name: 'OpenAI', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg', link: 'https://openai.com' },
+    { name: 'Anthropic', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Anthropic_logo.svg', link: 'https://www.anthropic.com' },
+    { name: 'Make', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Make-logo.png', link: 'https://www.make.com' },
+    { name: 'n8n', logoUrl: 'https://n8n.io/images/logo.svg', link: 'https://n8n.io' },
+    { name: 'Zapier', logoUrl: 'https://cdn.worldvectorlogo.com/logos/zapier.svg', link: 'https://zapier.com' },
+    { name: 'Google Sheets', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Google_Sheets_logo_%282014-2020%29.svg', link: 'https://www.google.com/sheets' },
+    { name: 'Salesforce', logoUrl: 'https://cdn.worldvectorlogo.com/logos/salesforce-2.svg', link: 'https://www.salesforce.com' },
+    { name: 'Slack', logoUrl: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg', link: 'https://slack.com' },
+    { name: 'HubSpot', logoUrl: 'https://cdn.worldvectorlogo.com/logos/hubspot-1.svg', link: 'https://www.hubspot.com' },
+    { name: 'Airtable', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Airtable_Logo.svg/512px-Airtable_Logo.svg.png', link: 'https://airtable.com' },
+    { name: 'Notion', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png', link: 'https://www.notion.so' }
+  ];
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
     });
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (_event === 'SIGNED_IN') {
         toast({ title: "Connexion réussie!", description: "Bienvenue sur SimplAizer." });
@@ -53,93 +81,6 @@ const App = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const partners = [
-    'ChatGPT', 'OpenAI', 'Anthropic', 'Make', 'n8n', 'Zapier',
-    'Google Sheets', 'Salesforce', 'Slack', 'HubSpot', 'Airtable', 'Notion'
-  ];
-
-  const testimonials = [
-    {
-      name: "Catherine Fasang",
-      company: "Restaurant Chromosome",
-      text: "Bravo à vous deux, cela colle parfaitement à ce que nous voulons, du sur mesure !",
-      rating: 5,
-      image: "https://images.app.goo.gl/sXDgfpnrF3ouPigm9"
-    },
-    {
-      name: "MVDP",
-      company: "Consulting Plus",
-      text: "L'équipe SimplAizer a transformé nos processus. Nous gagnons 15h par semaine !",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
-    },
-    {
-      name: "Sophie Laurent",
-      company: "Tech Solutions",
-      text: "ROI exceptionnel ! L'investissement s'est amorti en 3 mois.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-    }
-  ];
-
-  const services = [
-    {
-      id: "consulting",
-      icon: "Brain",
-      title: "Consulting IA Stratégique",
-      description: "Audit complet et feuille de route IA personnalisée pour maximiser votre ROI.",
-    },
-    {
-      id: "automation",
-      icon: "Settings",
-      title: "Automatisations et agent IA Sur Mesure",
-      description: "Développement d'automatisations intelligentes avec Make/n8n pour optimiser vos workflows.",
-    },
-    {
-      id: "custom-",
-      icon: "Zap",
-      title: " Infrastructures Personnalisées",
-      description: "Développement d'une infrastructure IA sur mesure pour une application métier unique.",
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: "Quel est votre processus de collaboration type ?",
-      answer: "Notre méthode éprouvée en 5 étapes garantit votre succès : ..."
-    },
-    {
-      question: "En combien de temps puis-je espérer voir des résultats concrets ?",
-      answer: "Les premiers gains sont souvent visibles dès les 2-4 semaines..."
-    },
-    {
-      question: "Proposez-vous un accompagnement une fois le projet livré ?",
-      answer: "Absolument ! Nous incluons 3 mois de support gratuit..."
-    }
-  ];
-
-  const teamMembers = [
-    {
-      name: "Hassan DAHER",
-      role: "Expert IA & Co-fondateur",
-      bio: "Hassan est passionné par la transformation digitale des PME grâce à l'IA et automatisation.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto-shrink_800_800/B4EZTgoo5SGwAg-/0/1738935538403?e=1757548800&v=beta&t=1HdrPjMmfG5HNDy7NeA7sa5FefQ5ol0V0VrRiVsTFK0"
-    },
-    {
-      name: "Nathan GOUTAGNY",
-      role: "Expert Automatisation & Co-fondateur",
-      bio: "Nathan est un magicienne d'IA, spécialisé dans la création d'automatisations complexes.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto-shrink_400_400/B4EZTkzGn4HgAg-/0/1739005393705?e=1757548800&v=beta&t=-oYRmngUiz4ADcsz_wph0GvXluUoQngE0XuKc9OZ5mQ"
-    }
-  ];
-
-  const ourStory = "Fondée en 2023 par Hassan DAHER & Nathan GOUTAGNY, SimplAizer est née d'une conviction profonde : ...";
-
-  const handleOpenChat = () => {
-    setIsChatOpen(true);
-    toast({ title: "Agent IA Activé!", description: "Bonjour! Comment puis-je vous aider à exploiter l'IA aujourd'hui?" });
-  };
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!localStorage.getItem('chatOpened')) {
@@ -150,7 +91,10 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const getLogoUrl = (partner) => `https://via.placeholder.com/100x40?text=${encodeURIComponent(partner)}`;
+  const handleOpenChat = () => {
+    setIsChatOpen(true);
+    toast({ title: "Agent IA Activé!", description: "Bonjour! Comment puis-je vous aider à exploiter l'IA aujourd'hui?" });
+  };
 
   return (
     <Router>
@@ -162,60 +106,24 @@ const App = () => {
           }}
         />
         <Toaster />
-        <Navbar onOpenChat={handleOpenChat} logoUrl={logoUrl} session={session} />
+        <Navbar onOpenChat={handleOpenChat} />
         <main className="pt-20">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  onOpenChat={handleOpenChat}
-                  partners={partners}
-                  testimonials={testimonials}
-                  services={services}
-                  faqItems={faqItems}
-                  ourStory={ourStory}
-                  robotImageUrl={robotImageUrl}
-                  renderPartner={(partner, index) => (
-                    <div key={index} className="p-2 border border-white/20 rounded-xl backdrop-blur-sm whitespace-nowrap">
-                      <img src={getLogoUrl(partner)} alt={partner} className="h-12 w-auto inline-block" />
-                    </div>
-                  )}
-                  renderTeam={() => (
-                    <div className="flex justify-center flex-wrap gap-12 mt-12">
-                      {teamMembers.map((member, index) => (
-                        <div key={index} className="max-w-xs text-center bg-slate-800/40 p-6 rounded-2xl shadow-lg">
-                          <img src={member.image} alt={member.name} className="w-32 h-32 rounded-full mx-auto border-4 border-blue-500 mb-4 object-cover" />
-                          <h3 className="text-xl font-bold">{member.name}</h3>
-                          <p className="text-blue-400 mb-2">{member.role}</p>
-                          <p className="text-gray-300 mb-4">{member.bio}</p>
-                          <a href="#" className="inline-block border border-blue-500 px-4 py-2 rounded text-blue-500 hover:bg-blue-500 hover:text-white transition">
-                            Profil LinkedIn
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                />
-              }
-            />
-            <Route path="/solutions/prestations" element={<ServicesPage services={services} onOpenChat={handleOpenChat} />} />
-            <Route path="/solutions/produits" element={<ProductsPage products={[]} onOpenChat={handleOpenChat} />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/solutions/prestations" element={<ServicesPage />} />
+            <Route path="/solutions/produits" element={<ProductsPage />} />
             <Route path="/solutions" element={<Navigate to="/solutions/prestations" replace />} />
-            <Route path="/ressources/blog" element={<BlogPage onOpenChat={handleOpenChat} />} />
-            <Route path="/ressources/ebook" element={<EbookPage onOpenChat={handleOpenChat} />} />
+            <Route path="/ressources/blog" element={<BlogPage />} />
+            <Route path="/ressources/ebook" element={<EbookPage />} />
             <Route path="/ressources" element={<Navigate to="/ressources/blog" replace />} />
-            <Route path="/clients" element={<CaseStudiesPage testimonials={testimonials} onOpenChat={handleOpenChat} />} />
-            <Route path="/contact" element={<ContactPage onOpenChat={handleOpenChat} />} />
-            <Route path="/services" element={<Navigate to="/solutions/prestations" replace />} />
-            <Route path="/produits" element={<Navigate to="/solutions/produits" replace />} />
-            <Route path="/equipe" element={<Navigate to="/" replace />} />
-            <Route path="/faq" element={<Navigate to="/" replace />} />
-            <Route path="/cas-clients" element={<Navigate to="/clients" replace />} />
+            <Route path="/clients" element={<CaseStudiesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
+
+          <PartnerCarousel partners={partners} />
         </main>
-        <Footer logoUrl={logoUrl} />
-        <ChatWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} agentAvatar={robotImageUrl} />
+        <Footer />
+        <ChatWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
         {!isChatOpen && (
           <motion.button
             initial={{ scale: 0, y: 50 }}
