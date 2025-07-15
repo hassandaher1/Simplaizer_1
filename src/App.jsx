@@ -23,18 +23,18 @@ const App = () => {
   const [session, setSession] = useState(null);
 
   const partners = [
-    { name: 'ChatGPT', logoUrl: 'https://example.com/logo-chatgpt.png', link: 'https://www.openai.com/chatgpt' },
-    { name: 'OpenAI', logoUrl: 'https://example.com/logo-openai.png', link: 'https://www.openai.com' },
-    { name: 'Anthropic', logoUrl: 'https://example.com/logo-anthropic.png', link: 'https://www.anthropic.com' },
-    { name: 'Make', logoUrl: 'https://example.com/logo-make.png', link: 'https://www.make.com' },
-    { name: 'n8n', logoUrl: 'https://example.com/logo-n8n.png', link: 'https://n8n.io' },
-    { name: 'Zapier', logoUrl: 'https://example.com/logo-zapier.png', link: 'https://zapier.com' },
-    { name: 'Google Sheets', logoUrl: 'https://example.com/logo-google-sheets.png', link: 'https://www.google.com/sheets' },
-    { name: 'Salesforce', logoUrl: 'https://example.com/logo-salesforce.png', link: 'https://www.salesforce.com' },
-    { name: 'Slack', logoUrl: 'https://example.com/logo-slack.png', link: 'https://slack.com' },
-    { name: 'HubSpot', logoUrl: 'https://example.com/logo-hubspot.png', link: 'https://www.hubspot.com' },
-    { name: 'Airtable', logoUrl: 'https://example.com/logo-airtable.png', link: 'https://airtable.com' },
-    { name: 'Notion', logoUrl: 'https://example.com/logo-notion.png', link: 'https://www.notion.so' }
+    { name: 'ChatGPT', logoUrl: 'https://i.ibb.co/Rpy1VfcT/Chat-GPT-Image-Jul-14-2025-07-11-40-PM.png', link: 'https://www.openai.com/chatgpt' },
+    { name: 'airtable', logoUrl: 'https://i.ibb.co/jkVBLW9V/Chat-GPT-Image-Jul-14-2025-07-27-15-PM-removebg-preview.png', link: 'https://www.airtable.com' },
+    { name: 'Figma', logoUrl: 'https://i.ibb.co/gZ3t79vp/Chat-GPT-Image-Jul-14-2025-07-25-58-PM-removebg-preview.png', link: 'https://www.Figma.com' },
+    { name: 'Drive', logoUrl: 'https://i.ibb.co/fdGY7WW8/Chat-GPT-Image-Jul-14-2025-07-20-59-PM-removebg-preview.png', link: 'https://www.drive.google.com' },
+    { name: 'n8n', logoUrl: 'https://i.ibb.co/zHjpBsFN/n8n.png', link: 'https://n8n.io' },
+    { name: 'click up', logoUrl: 'https://i.ibb.co/Lhv3bVcC/Chat-GPT-Image-Jul-14-2025-07-26-38-PM-removebg-preview.png', link: 'https://clickup.com' },
+    { name: 'Google Sheets', logoUrl: 'https://i.ibb.co/nqMPFSJg/Chat-GPT-Image-Jul-14-2025-07-21-42-PM-removebg-preview.png', link: 'https://www.google.com/sheets' },
+    { name: 'Salesforce', logoUrl: 'https://i.ibb.co/pjp1nGMv/Chat-GPT-Image-Jul-15-2025-10-37-28-PM.png', link: 'https://www.salesforce.com' },
+    { name: 'Slack', logoUrl: 'https://i.ibb.co/h1yJLmnX/Chat-GPT-Image-Jul-14-2025-07-15-38-PM-removebg-preview.png', link: 'https://slack.com' },
+    { name: 'HubSpot', logoUrl: 'https://i.ibb.co/gFhzXNpY/Chat-GPT-Image-Jul-15-2025-08-58-04-PM.png', link: 'https://www.hubspot.com' },
+    { name: 'Gmail', logoUrl: 'https://i.ibb.co/wN68zL1B/Chat-GPT-Image-Jul-14-2025-07-28-00-PM-removebg-preview.png', link: 'https://mail.google.com' },
+    { name: 'Notion', logoUrl: 'https://i.ibb.co/C3TSHXt2/Chat-GPT-Image-Jul-14-2025-07-25-13-PM-removebg-preview.png', link: 'https://www.notion.so' }
   ];
 
   const testimonials = [
