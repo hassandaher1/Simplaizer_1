@@ -10,7 +10,7 @@
 
 .robot {
   position: relative;
-  width: 320px; /* ✅ taille augmentée */
+  width: 380px; /* ✅ taille augmentée */
   margin: 0 auto;
   z-index: 1;
 }
