@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateY(-30px); /* 👈 monte l'ensemble */
+  transform: translateY(-60px); /* 👈 monte l'ensemble */
 }
 
 .robot {
