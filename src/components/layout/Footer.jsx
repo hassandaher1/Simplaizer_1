@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
 
-const Footer = ({ logoUrl }) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const logoUrl = "/LOGO.png"; // Logo placé dans /public/LOGO.png
 
   const socialLinks = [
     { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
@@ -20,7 +21,7 @@ const Footer = ({ logoUrl }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <Link to="/" className="flex items-center space-x-3 mb-4">
-               <motion.img
+              <motion.img
                 src={logoUrl}
                 alt="SimplAizer Logo"
                 className="h-10 w-auto"
@@ -33,7 +34,7 @@ const Footer = ({ logoUrl }) => {
               Votre partenaire expert en IA et automatisation pour PME. Transformons ensemble votre entreprise.
             </p>
           </div>
-          
+
           <div>
             <span className="font-semibold text-lg text-gray-200 mb-4 block">Solutions</span>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -44,7 +45,7 @@ const Footer = ({ logoUrl }) => {
               <li><Link to="/solutions/produits#custom-ia-app" className="hover:text-blue-400 transition-colors">Application IA Personnalisée</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <span className="font-semibold text-lg text-gray-200 mb-4 block">Ressources</span>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -54,7 +55,7 @@ const Footer = ({ logoUrl }) => {
               <li><Link to="/ressources/centre-aide" className="hover:text-blue-400 transition-colors">Centre d'Aide</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <span className="font-semibold text-lg text-gray-200 mb-4 block">Contactez-nous</span>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -73,7 +74,7 @@ const Footer = ({ logoUrl }) => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-blue-500/20 mt-12 pt-10 text-center text-gray-500 text-sm">
           <p>&copy; {currentYear} SimplAizer. Tous droits réservés. Conçu avec ❤️ et IA.</p>
           <p className="mt-1">
