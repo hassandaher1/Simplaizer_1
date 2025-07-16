@@ -57,30 +57,11 @@
   animation: flameWobble 3s linear infinite;
 }
 
-.flame-main.one {
-  animation-delay: 1s;
-  animation-duration: 4s;
-}
-
-.flame-main.two {
-  animation-delay: 2s;
-  animation-duration: 3s;
-}
-
-.flame-main.three {
-  animation-delay: 3s;
-  animation-duration: 2.1s;
-}
-
-.flame-main.four {
-  animation-delay: 4s;
-  animation-duration: 3.2s;
-}
-
-.flame-main.five {
-  animation-delay: 5s;
-  animation-duration: 2.5s;
-}
+.flame-main.one { animation-delay: 1s; animation-duration: 4s; }
+.flame-main.two { animation-delay: 2s; animation-duration: 3s; }
+.flame-main.three { animation-delay: 3s; animation-duration: 2.1s; }
+.flame-main.four { animation-delay: 4s; animation-duration: 3.2s; }
+.flame-main.five { animation-delay: 5s; animation-duration: 2.5s; }
 
 @keyframes flameWobble {
   50% {
