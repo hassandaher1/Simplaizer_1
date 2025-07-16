@@ -1,0 +1,103 @@
+.hero-animation-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.robot {
+  position: absolute;
+  top: 175px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  z-index: 1;
+}
+
+.mo-fire {
+  width: 150px;
+  position: absolute;
+  transform: rotate(180deg);
+  z-index: 0;
+}
+
+.mo-fire.left {
+  left: calc(50% - 89px);
+  top: 450px;
+}
+
+.mo-fire.right {
+  left: calc(45% + 35px);
+  top: 450px;
+}
+
+.mo-fire svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.flame {
+  animation: flamefly 2s linear infinite;
+  opacity: 1;
+  transform-origin: 50% 50% 0;
+  display: block;
+}
+
+.flame.one {
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
+
+.flame.two {
+  animation-delay: 1s;
+  animation-duration: 5s;
+}
+
+.flame-main {
+  animation: flameWobble 3s linear infinite;
+}
+
+.flame-main.one {
+  animation-delay: 1s;
+  animation-duration: 4s;
+}
+
+.flame-main.two {
+  animation-delay: 2s;
+  animation-duration: 3s;
+}
+
+.flame-main.three {
+  animation-delay: 3s;
+  animation-duration: 2.1s;
+}
+
+.flame-main.four {
+  animation-delay: 4s;
+  animation-duration: 3.2s;
+}
+
+.flame-main.five {
+  animation-delay: 5s;
+  animation-duration: 2.5s;
+}
+
+@keyframes flameWobble {
+  50% {
+    transform: scale(1, 1.2) translate(0, -30px) rotate(-2deg);
+  }
+}
+
+@keyframes flamefly {
+  0% {
+    transform: translate(0) rotate(180deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-20px, -100px) rotate(180deg);
+    opacity: 0;
+  }
+}

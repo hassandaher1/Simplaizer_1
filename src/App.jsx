@@ -16,6 +16,7 @@ import ChatWidget from '@/components/ChatWidget';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
+import HeroAnimation from '@/components/HeroAnimation'; // Nouveau composant
 
 const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -102,13 +103,13 @@ const App = () => {
       name: "Hassan DAHER",
       role: "Expert IA & Co-fondateur",
       bio: "Hassan est passionné par la transformation digitale des PME grâce à l'IA et automatisation.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto-shrink_800_800/B4EZTgoo5SGwAg-/0/1738935538403?e=1758153600&v=beta&t=CYd0IA5KHLKHqe2wXZyGnjuqhZLqxt8DZpEdsTb2Zkw"
+      image: "icone"
     },
     {
       name: "Nathan GOUTAGNY",
       role: "Expert Automatisation & Co-fondateur",
       bio: "Nathan est un magicien de l'automatisation, spécialisé dans les workflows complexes.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto-shrink_800_800/B4EZTkzGn4HgAc-/0/1739005393727?e=1758153600&v=beta&t=tgo6B_8KM96OYtvgjjPbjGKuEkWN7l1Z29TtJFeup_g"
+      image: "icone"
     }
   ];
 
@@ -184,9 +185,9 @@ const App = () => {
                 faqItems={faqItems}
                 teamMembers={teamMembers}
                 ourStory={ourStory}
-                robotImageUrl="https://i.ibb.co/DPc61PfV/Chat-GPT-Image-Jul-16-2025-03-19-09-PM.png"alt="Robot Nova"
                 renderPartner={renderPartner}
                 renderTeam={renderTeam}
+                HeroAnimationComponent={HeroAnimation} // 🔥 animation intégrée ici
               />
             } />
             <Route path="/solutions/prestations" element={<ServicesPage />} />
