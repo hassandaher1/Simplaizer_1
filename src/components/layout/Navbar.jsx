@@ -90,10 +90,12 @@ const NavItem = ({ to, label, children, onClick, closeMenu }) => {
   );
 };
 
-const Navbar = ({ onOpenChat, logoUrl }) => {
+const Navbar = ({ onOpenChat }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const logoUrl = "/LOGO.png"; // image dans /public/LOGO.png
 
   const navLinks = [
     { to: "/", label: "Accueil" },
@@ -119,15 +121,9 @@ const Navbar = ({ onOpenChat, logoUrl }) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY <= 0) {
-        setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY) {
-        setShowNavbar(false);
-      } else {
-        setShowNavbar(true);
-      }
-
+      if (currentScrollY <= 0) setShowNavbar(true);
+      else if (currentScrollY > lastScrollY) setShowNavbar(false);
+      else setShowNavbar(true);
       setLastScrollY(currentScrollY);
     };
 
@@ -143,13 +139,13 @@ const Navbar = ({ onOpenChat, logoUrl }) => {
             <motion.img
               src={logoUrl}
               alt="SimplAizer Logo"
-              className="h-10 w-auto" 
+              className="h-10 w-auto"
               whileHover={{ scale: 1.1, rotate: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
             <span className="text-2xl font-bold gradient-text">SimplAizer</span>
           </Link>
-          
+
           <div className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link, index) => (
               <NavItem key={index} {...link} closeMenu={handleLinkClick} />
