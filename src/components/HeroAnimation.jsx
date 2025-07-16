@@ -1,13 +1,13 @@
 import React from 'react';
-import './heroAnimation.css'; // ✅ le CSS d'animation est bien importé
+import './heroAnimation.css';
 
 const HeroAnimation = () => {
   return (
-    <div className="hero-animation-container">
-      {/* Robot */}
+    <div className="hero-animation-container flex flex-col justify-center items-center h-full">
+      {/* Robot visible avec bon lien */}
       <img
         src="https://i.ibb.co/DPc61PfV/Chat-GPT-Image-Jul-16-2025-03-19-09-PM.png"
-        alt="Robot IA"
+        alt="Robot IA SimplAizer pour PME"
         className="robot"
       />
 
