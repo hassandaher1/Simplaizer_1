@@ -84,16 +84,16 @@ const App = () => {
 
   const faqItems = [
     {
-      question: "Quel est votre processus de collaboration type ?",
-      answer: "Notre méthode éprouvée en 5 étapes garantit votre succès : ..."
+      question: "Est-ce que l’agence Simplaizer est faite pour vous ?",
+      answer: "Oui, si vous perdez du temps sur des tâches manuelles, mobilisez des ressources sur des actions peu utiles, ou manquez de visibilité sur vos chiffres. Simplaizer vous aide à reprendre le contrôle en créant des automatisations intelligentes, des infrastructures sur mesure et des outils simples pour mieux gérer votre activité au quotidien."
     },
     {
-      question: "En combien de temps puis-je espérer voir des résultats concrets ?",
-      answer: "Les premiers gains sont souvent visibles dès les 2-4 semaines..."
+      question: "Proposez-vous un accompagnement une fois le projet est livré ?",
+      answer: "Oui, un accompagnement est bien prévu une fois le projet livré. Il prend la forme d’une maintenance avec des interventions en cas de bug, de panne. L’idée, c’est de rester disponibles dans la durée, un peu comme une prévoyance : vous avez l’assurance que le système reste stable, fonctionnel et évolutif sans avoir à vous en soucier."
     },
     {
-      question: "Proposez-vous un accompagnement une fois le projet livré ?",
-      answer: "Absolument ! Nous incluons 3 mois de support gratuit..."
+      question: "Comment fonctionne la collaboration avec Simplaizer ?",
+      answer: "Tout commence par un rendez-vous gratuit sous forme d’audit pour comprendre concrètement vos besoins et identifier où vous perdez du temps ou de l’efficacité. Si on estime qu’on peut réellement vous aider, on vous envoie alors un questionnaire détaillé à remplir pour affiner vos attentes et évaluer ce qu’il faut mettre en place. Ensuite, on vous propose un devis sur-mesure. Une fois accepté, on lance le projet et on vous livre une solution fidèle à ce qui a été défini ensemble, dans les délais et les conditions prévues."
     }
   ];
 
@@ -102,13 +102,13 @@ const App = () => {
       name: "Hassan DAHER",
       role: "Expert IA & Co-fondateur",
       bio: "Hassan est passionné par la transformation digitale des PME grâce à l'IA et automatisation.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto"
+      image: "https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto-shrink_800_800/B4EZTgoo5SGwAg-/0/1738935538403?e=1758153600&v=beta&t=CYd0IA5KHLKHqe2wXZyGnjuqhZLqxt8DZpEdsTb2Zkw"
     },
     {
       name: "Nathan GOUTAGNY",
       role: "Expert Automatisation & Co-fondateur",
       bio: "Nathan est un magicien de l'automatisation, spécialisé dans les workflows complexes.",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto"
+      image: "https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto-shrink_800_800/B4EZTkzGn4HgAc-/0/1739005393727?e=1758153600&v=beta&t=tgo6B_8KM96OYtvgjjPbjGKuEkWN7l1Z29TtJFeup_g"
     }
   ];
 
@@ -184,7 +184,7 @@ const App = () => {
                 faqItems={faqItems}
                 teamMembers={teamMembers}
                 ourStory={ourStory}
-                robotImageUrl="https://cdn.midjourney.com/123456.jpg"
+                robotImageUrl="https://i.ibb.co/DPc61PfV/Chat-GPT-Image-Jul-16-2025-03-19-09-PM.png"alt="Robot Nova"
                 renderPartner={renderPartner}
                 renderTeam={renderTeam}
               />
