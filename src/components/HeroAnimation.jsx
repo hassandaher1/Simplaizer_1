@@ -1,5 +1,5 @@
 import React from 'react';
-import './heroAnimation.css'; // Pense à créer ce fichier aussi !
+import './heroAnimation.css'; // ✅ le CSS d'animation est bien importé
 
 const HeroAnimation = () => {
   return (
