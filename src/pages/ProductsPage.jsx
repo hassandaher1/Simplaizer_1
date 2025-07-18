@@ -9,7 +9,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
   const plans = [
     {
       name: 'Starter',
-      price: { monthly: '$37', annually: '$370' },
+      price: { monthly: '37', annually: '370' },
       description: 'Perfect for small businesses starting with AI automation.',
       features: [
         'Basic workflow automation',
@@ -23,7 +23,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
     },
     {
       name: 'Professional',
-      price: { monthly: '$75', annually: '$750' },
+      price: { monthly: '75', annually: '750' },
       description: 'Perfect for small businesses starting with AI automation.',
       features: [
         'Advanced workflow automation',
@@ -103,13 +103,22 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
                     <span className="ml-2 bg-white text-black text-xs px-2 py-1 rounded-full">Popular</span>
                   )}
                 </div>
+
                 <p className="text-4xl font-bold mb-2 text-white">
-                  {isAnnual ? plan.price.annually : plan.price.monthly}
-                  <span className="text-base font-normal">/month</span>
+                  {plan.price[isAnnual ? 'annually' : 'monthly'] === 'Custom'
+                    ? 'Custom'
+                    : `${plan.price[isAnnual ? 'annually' : 'monthly']}€`}
+                  <span className="text-base font-normal">
+                    {plan.price[isAnnual ? 'annually' : 'monthly'] === 'Custom'
+                      ? ''
+                      : isAnnual
+                      ? '/year'
+                      : '/month'}
+                  </span>
                 </p>
+
                 <p className="text-sm text-gray-300 mb-6">{plan.description}</p>
 
-                {/* ✅ Bouton blanc uniformisé */}
                 <Button className="w-full mb-6 rounded-full py-3 px-6 shadow-md hover:shadow-lg hover:scale-[1.015] transition-transform duration-200 bg-white text-black hover:bg-gray-100">
                   {plan.button}
                 </Button>
