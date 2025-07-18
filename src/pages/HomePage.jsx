@@ -27,8 +27,6 @@ const HomePage = ({
   faqItems,
   teamMembers,
   ourStory,
-  renderPartner,
-  renderTeam,
   HeroAnimationComponent 
 }) => {
   const heroStats = [
@@ -92,7 +90,11 @@ const HomePage = ({
           </p>
           <div className="overflow-hidden relative">
             <div className="flex space-x-12 scroll-animation">
-              {[...partners, ...partners].map((partner, index) => renderPartner(partner, index))}
+              {[...partners, ...partners].map((partner, index) => partner && partner.name && (
+                <div key={index} className="flex items-center justify-center">
+                  <img src={partner.logo} alt={partner.name} className="h-12 w-auto grayscale hover:grayscale-0 transition" />
+                </div>
+              ))}
             </div>
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-800/80 to-transparent pointer-events-none"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-800/80 to-transparent pointer-events-none"></div>
@@ -161,16 +163,34 @@ const HomePage = ({
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-            Notre <span className="gradient-text">équipe</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
-            Une équipe passionnée par l'IA au service des PME ambitieuses.
-          </p>
-          {renderTeam?.()}
+      {/* Team Section - avec effet glass */}
+      <section className="py-20 section-bg">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8, ease: 'circOut' }} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+              Notre <span className="gradient-text">équipe</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Une équipe passionnée par l'IA au service des PME ambitieuses.
+            </p>
+          </motion.div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: 'circOut' }}
+                className="glass-effect p-6 rounded-2xl shadow-lg flex flex-col items-center text-center hover:bg-slate-700/50 transition-all duration-300"
+              >
+                <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-500" />
+                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                <p className="text-blue-400 text-sm mb-2">{member.role}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">{member.bio}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
