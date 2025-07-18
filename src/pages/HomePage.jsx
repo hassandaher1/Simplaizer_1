@@ -164,7 +164,7 @@ const HomePage = ({
         </div>
       </section>
 
-            {/* Team Section */}
+                  {/* Team Section */}
       <section className="py-20 section-bg">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8, ease: 'circOut' }} className="text-center mb-16">
@@ -175,20 +175,40 @@ const HomePage = ({
               Une équipe passionnée par l'IA au service des PME ambitieuses.
             </p>
           </motion.div>
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center">
-            {teamMembers.map((member, index) => (
+          <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+            {[{
+              name: 'Hassan',
+              role: 'Co-fondateur',
+              bio: "Expert en automatisation et IA générative. Hassan accompagne les PME dans leur transformation digitale.",
+              image: '/images/team/hassan.jpg',
+              linkedin: 'https://www.linkedin.com/in/hassan-linkedin'
+            }, {
+              name: 'Nathan',
+              role: 'Co-fondateur',
+              bio: "Spécialiste en stratégie IA et no-code. Nathan construit des solutions concrètes pour les entrepreneurs.",
+              image: '/images/team/nathan.jpg',
+              linkedin: 'https://www.linkedin.com/in/nathan-linkedin'
+            }].map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: 'circOut' }}
-                className="glass-effect p-6 rounded-2xl shadow-lg flex flex-col items-center text-center hover:bg-slate-700/50 transition-all duration-300"
+                className="glass-effect w-full max-w-sm p-6 rounded-2xl shadow-lg flex flex-col items-center text-center hover:bg-slate-700/50 transition-all duration-300"
               >
                 <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-500" />
                 <h3 className="text-lg font-semibold text-white">{member.name}</h3>
                 <p className="text-blue-400 text-sm mb-2">{member.role}</p>
-                <p className="text-gray-300 text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">{member.bio}</p>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-auto px-4 py-2 bg-white text-blue-600 font-semibold rounded-full shadow hover:bg-blue-50 transition"
+                >
+                  Voir sur LinkedIn
+                </a>
               </motion.div>
             ))}
           </div>
