@@ -64,7 +64,7 @@ const BlogPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: index * 0.1, ease: 'circOut' }}
-              className="glass-effect rounded-xl flex flex-col shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300 overflow-hidden"
+              className="glass-effect rounded-xl flex flex-col shadow-lg hover:shadow-blue-500/20 transition-shadow duration-300 overflow-hidden"
             >
               <img
                 src={post.image}
