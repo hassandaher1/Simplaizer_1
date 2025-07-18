@@ -47,7 +47,7 @@ const BlogPage = () => {
           transition={{ duration: 0.8, ease: 'circOut' }}
           className="text-center mb-16 md:mb-20"
         >
-          <Rss className="w-16 h-16 text-orange-400 mx-auto mb-6" />
+          <Rss className="w-16 h-16 text-blue-500-400 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-white">
             Notre <span className="gradient-text">Blog IA</span> & Automatisation
           </h1>
@@ -72,10 +72,10 @@ const BlogPage = () => {
                 className="w-full aspect-[4/3] object-cover"
               />
               <div className="p-5 md:p-6 flex flex-col flex-grow">
-                <span className="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-medium mb-2 w-fit">
+                <span className="bg-blue-500-500/20 text-blue-300-400 px-3 py-1 rounded-full text-xs font-medium mb-2 w-fit">
                   {post.category}
                 </span>
-                <h2 className="text-xl font-semibold mb-2 text-white hover:text-orange-400 transition-colors">
+                <h2 className="text-xl font-semibold mb-2 text-white hover:text-blue-300-400 transition-colors">
                   <Link to={`/ressources/blog/${post.id}`}>{post.title}</Link>
                 </h2>
                 <p className="text-xs text-gray-500 mb-3">{post.date}</p>
@@ -83,7 +83,7 @@ const BlogPage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-auto border-orange-500 text-orange-400 hover:bg-orange-500/10 rounded-md text-sm"
+                  className="mt-auto border-l-blue-700-500 text-blue-500-400 hover:bg-blue-500/10 rounded-md text-sm"
                 >
                   <Link to={`/ressources/blog/${post.id}`}>
                     Lire l'article <ArrowRight className="w-4 h-4 ml-1" />
