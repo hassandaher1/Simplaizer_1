@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, ShoppingCart, Zap, Wrench, Crown } from 'lucide-react';
 
-const ProductsPage = ({ products, onOpenChat }) => {
+const ProductsPage = ({ products = [], onOpenChat }) => {
   const [isAnnual, setIsAnnual] = useState(true);
 
   const plans = [
@@ -103,7 +103,7 @@ const ProductsPage = ({ products, onOpenChat }) => {
         </div>
       </section>
 
-      {/* Section Pricing intégrée directement ici */}
+      {/* Section Pricing intégrée */}
       <section className="bg-black text-white font-sans px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <motion.div
