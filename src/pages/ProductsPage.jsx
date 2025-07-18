@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, ShoppingCart, Zap, Wrench, Crown } from 'lucide-react';
+import { CheckCircle, Zap, Wrench, Crown } from 'lucide-react';
 
 const ProductsPage = ({ products = [], onOpenChat }) => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -54,7 +54,6 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
 
   return (
     <div className="py-24 md:py-32 space-y-24 md:space-y-32">
-      {/* Section Pricing modifiée */}
       <section className="text-white font-sans px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <motion.div
@@ -74,7 +73,12 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
           <div className="mt-6 flex items-center justify-center gap-4 mb-16">
             <span className="text-sm">Monthly</span>
             <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" checked={isAnnual} onChange={() => setIsAnnual(!isAnnual)} />
+              <input
+                type="checkbox"
+                className="sr-only peer"
+                checked={isAnnual}
+                onChange={() => setIsAnnual(!isAnnual)}
+              />
               <div className="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:after:translate-x-full after:absolute after:left-[2px] after:top-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
             <span className="text-sm">Annually</span>
@@ -99,11 +103,17 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
                     <span className="ml-2 bg-white text-black text-xs px-2 py-1 rounded-full">Popular</span>
                   )}
                 </div>
-                <p className="text-4xl font-bold mb-2 text-white">{isAnnual ? plan.price.annually : plan.price.monthly}<span className="text-base font-normal">/month</span></p>
+                <p className="text-4xl font-bold mb-2 text-white">
+                  {isAnnual ? plan.price.annually : plan.price.monthly}
+                  <span className="text-base font-normal">/month</span>
+                </p>
                 <p className="text-sm text-gray-300 mb-6">{plan.description}</p>
-                <Button className={`w-full mb-6 rounded-full py-3 px-6 shadow-md hover:shadow-lg hover:scale-[1.015] transition-transform duration-200 ${plan.highlight ? 'bg-white text-black' : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}>
+
+                {/* ✅ Bouton blanc uniformisé */}
+                <Button className="w-full mb-6 rounded-full py-3 px-6 shadow-md hover:shadow-lg hover:scale-[1.015] transition-transform duration-200 bg-white text-black hover:bg-gray-100">
                   {plan.button}
                 </Button>
+
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center">
