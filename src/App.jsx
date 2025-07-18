@@ -25,16 +25,16 @@ const App = () => {
   const partners = [
   { name: 'ChatGPT', logo: 'https://i.ibb.co/Rpy1VfcT/Chat-GPT-Image-Jul-14-2025-07-11-40-PM.png', link: 'https://www.openai.com/chatgpt' },
   { name: 'airtable', logo: 'https://i.ibb.co/jkVBLW9/Chat-GPT-Image-Jul-14-2025-07-27-15-PM-removebg-preview.png', link: 'https://www.airtable.com' },
-  { name: 'Figma', logo: 'https://i.ibb.co/gZ3T9Y9/Chat-GPT-Image-Jul-14-2025-07-25-58-PM-removebg-preview.png', link: 'https://www.figma.com' },
-  { name: 'Drive', logo: 'https://i.ibb.co/fdG7VWk8/Chat-GPT-Image-Jul-14-2025-07-20-59-PM-removebg-preview.png', link: 'https://www.drive.google.com' },
+  { name: 'Figma', logo: 'https://i.ibb.co/gZ3t79vp/Chat-GPT-Image-Jul-14-2025-07-25-58-PM-removebg-preview.png', link: 'https://www.figma.com' },
+  { name: 'Drive', logo: 'https://i.ibb.co/fdGY7WW8/Chat-GPT-Image-Jul-14-2025-07-20-59-PM-removebg-preview.png', link: 'https://www.drive.google.com' },
   { name: 'n8n', logo: 'https://i.ibb.co/zhJpBsFN/n8n.png', link: 'https://n8n.io' },
-  { name: 'click up', logo: 'https://i.ibb.co/Lhv3bVcc/Chat-GPT-Image-Jul-14-2025-07-26-38-PM-removebg-preview.png', link: 'https://clickup.com' },
+  { name: 'click up', logo: 'https://i.ibb.co/Lhv3bVcC/Chat-GPT-Image-Jul-14-2025-07-26-38-PM-removebg-preview.png', link: 'https://clickup.com' },
   { name: 'Google Sheets', logo: 'https://i.ibb.co/nqMPFSJg/Chat-GPT-Image-Jul-14-2025-07-21-42-PM-removebg-preview.png', link: 'https://sheets.google.com' },
   { name: 'Salesforce', logo: 'https://i.ibb.co/ppj1nGMv/Chat-GPT-Image-Jul-15-2025-10-37-28-PM.png', link: 'https://www.salesforce.com' },
   { name: 'Slack', logo: 'https://i.ibb.co/h1yJLmnX/Chat-GPT-Image-Jul-14-2025-07-15-38-PM-removebg-preview.png', link: 'https://slack.com' },
   { name: 'HubSpot', logo: 'https://i.ibb.co/gFhzXNpY/Chat-GPT-Image-Jul-15-2025-08-58-04-PM.png', link: 'https://www.hubspot.com' },
-  { name: 'Gmail', logo: 'https://i.ibb.co/Wn68Z1B/Chat-GPT-Image-Jul-14-2025-07-28-00-PM-removebg-preview.png', link: 'https://mail.google.com' },
-  { name: 'Notion', logo: 'https://i.ibb.co/C3TSHXT2/Chat-GPT-Image-Jul-14-2025-07-25-13-PM-removebg-preview.png', link: 'https://www.notion.so' }
+  { name: 'Gmail', logo: 'https://i.ibb.co/wN68zL1B/Chat-GPT-Image-Jul-14-2025-07-28-00-PM-removebg-preview.png', link: 'https://mail.google.com' },
+  { name: 'Notion', logo: 'https://i.ibb.co/C3TSHXt2/Chat-GPT-Image-Jul-14-2025-07-25-13-PM-removebg-preview.png', link: 'https://www.notion.so' }
 ];
 
   const testimonials = [
