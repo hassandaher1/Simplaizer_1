@@ -101,7 +101,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
                 </div>
                 <p className="text-4xl font-bold mb-2 text-white">{isAnnual ? plan.price.annually : plan.price.monthly}<span className="text-base font-normal">/month</span></p>
                 <p className="text-sm text-gray-300 mb-6">{plan.description}</p>
-                <Button className={`w-full mb-6 rounded-lg ${plan.highlight ? 'bg-white text-black' : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}>
+                <Button className={`w-full mb-6 rounded-full py-3 px-6 shadow-md hover:shadow-lg hover:scale-[1.015] transition-transform duration-200 ${plan.highlight ? 'bg-white text-black' : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}>
                   {plan.button}
                 </Button>
                 <ul className="space-y-3">
