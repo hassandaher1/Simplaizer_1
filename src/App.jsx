@@ -5,7 +5,6 @@ import { toast } from '@/components/ui/use-toast';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HomePage from '@/pages/HomePage';
-import ServicesPage from '@/pages/ServicesPage';
 import ProductsPage from '@/pages/ProductsPage';
 import ResourcesPage from '@/pages/ResourcesPage';
 import BlogPage from '@/pages/BlogPage';
@@ -190,7 +189,6 @@ const App = () => {
                 HeroAnimationComponent={HeroAnimation} // 🔥 animation intégrée ici
               />
             } />
-            <Route path="/solutions/prestations" element={<ServicesPage />} />
             <Route path="/solutions/produits" element={<ProductsPage />} />
             <Route path="/solutions" element={<Navigate to="/solutions/prestations" replace />} />
             <Route path="/ressources/blog" element={<BlogPage />} />
