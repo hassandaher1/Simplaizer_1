@@ -181,13 +181,13 @@ const HomePage = ({
               role: 'Co-fondateur',
               bio: "Expert en automatisation et IA générative. Hassan accompagne les PME dans leur transformation digitale.",
               image: '/images/team/hassan.jpg',
-              linkedin: 'https://www.linkedin.com/in/hassan-linkedin'
+              linkedin: 'https://media.licdn.com/dms/image/v2/D4E03AQFqLxUz7hqG6A/profile-displayphoto-shrink_800_800/B4EZTgoo5SGwAg-/0/1738935538403?e=1755734400&v=beta&t=5K-G6E_FKgBbOBBzq3zO1L9P5pTxX_NOD1SVXgGp6tc'
             }, {
               name: 'Nathan',
               role: 'Co-fondateur',
               bio: "Spécialiste en stratégie IA et no-code. Nathan construit des solutions concrètes pour les entrepreneurs.",
               image: '/images/team/nathan.jpg',
-              linkedin: 'https://www.linkedin.com/in/nathan-linkedin'
+              linkedin: 'https://media.licdn.com/dms/image/v2/D4E03AQElyIBHAZAmYg/profile-displayphoto-shrink_800_800/B4EZTkzGn4HgAc-/0/1739005393727?e=1755734400&v=beta&t=aMsYpba4304UNJOF2LnJOMSRFBFRonE1uRWWdOVJM7c'
             }].map((member, index) => (
               <motion.div
                 key={index}
