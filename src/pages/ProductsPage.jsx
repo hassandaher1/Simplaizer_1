@@ -9,7 +9,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
   const plans = [
     {
       name: 'Starter',
-      price: '$37',
+      price: { monthly: '$37', annually: '$370' },
       description: 'Perfect for small businesses starting with AI automation.',
       features: [
         'Basic workflow automation',
@@ -23,7 +23,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
     },
     {
       name: 'Professional',
-      price: '$75',
+      price: { monthly: '$75', annually: '$750' },
       description: 'Perfect for small businesses starting with AI automation.',
       features: [
         'Advanced workflow automation',
@@ -38,7 +38,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
     },
     {
       name: 'Enterprise',
-      price: 'Custom',
+      price: { monthly: 'Custom', annually: 'Custom' },
       description: 'Perfect for small businesses starting with AI automation.',
       features: [
         'Fully customizable AI automation',
@@ -54,11 +54,23 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
 
   return (
     <div className="py-24 md:py-32 space-y-24 md:space-y-32">
-      {/* Section Produits supprimée comme demandé */}
-
       {/* Section Pricing modifiée */}
       <section className="text-white font-sans px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+              The Best <span className="gradient-text">AI Automation</span>,<br /> at the Right Price
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Choose a plan that fits your business needs and start automating with AI
+            </p>
+          </motion.div>
+
           <div className="mt-6 flex items-center justify-center gap-4 mb-16">
             <span className="text-sm">Monthly</span>
             <label className="relative inline-flex items-center cursor-pointer">
@@ -87,7 +99,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
                     <span className="ml-2 bg-white text-black text-xs px-2 py-1 rounded-full">Popular</span>
                   )}
                 </div>
-                <p className="text-4xl font-bold mb-2 text-white">{plan.price}<span className="text-base font-normal">/month</span></p>
+                <p className="text-4xl font-bold mb-2 text-white">{isAnnual ? plan.price.annually : plan.price.monthly}<span className="text-base font-normal">/month</span></p>
                 <p className="text-sm text-gray-300 mb-6">{plan.description}</p>
                 <Button className={`w-full mb-6 ${plan.highlight ? 'bg-white text-black' : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}>
                   {plan.button}
