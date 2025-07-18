@@ -104,7 +104,7 @@ const ProductsPage = ({ products = [], onOpenChat }) => {
       </section>
 
       {/* Section Pricing intégrée */}
-      <section className="bg-black text-white font-sans px-4 sm:px-6 lg:px-8">
+      <section className="text-white font-sans px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -50 }}
