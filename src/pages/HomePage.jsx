@@ -82,6 +82,27 @@ const HomePage = ({
         </div>
       </section>
 
+            {/* Partners Section */}
+      <section className="py-16 bg-slate-800/60 min-h-[200px] flex items-center">
+        <div className="max-w-screen-xl mx-auto px-4 w-full">
+          <p className="text-center text-xl text-gray-300 mb-10 font-medium">
+            Nous travaillons avec les meilleurs outils du marché pour vous offrir la meilleure prestation.
+          </p>
+          <div className="overflow-hidden relative">
+            <div className="flex space-x-12 scroll-animation">
+              {[...partners, ...partners].map((partner, index) => partner && partner.name && partner.link && (
+                <a key={index} href={partner.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                  <img src={partner.logo} alt={partner.name} className="h-12 w-auto grayscale hover:grayscale-0 transition" />
+                </a>
+              ))}
+            </div>
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-800/80 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-800/80 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Services Section */}
       <section className="py-20 section-bg">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
