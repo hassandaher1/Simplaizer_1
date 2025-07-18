@@ -29,7 +29,7 @@ const HomePage = ({
   ourStory,
   renderPartner,
   renderTeam,
-  HeroAnimationComponent
+  HeroAnimationComponent 
 }) => {
   const heroStats = [
     { value: "+25%", label: "de CA en moyenne", icon: <TrendingUp className="w-6 h-6 text-blue-400" /> },
