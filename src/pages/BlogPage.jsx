@@ -18,8 +18,7 @@ const BlogPage = () => {
     },
     {
       id: 2,
-      title:
-        "Automatisation Intelligente : 5 workflows Make/n8n indispensables pour PME",
+      title: "Automatisation Intelligente : 5 workflows Make/n8n indispensables pour PME",
       date: "10 Juin 2025",
       excerpt:
         "Gagnez des heures chaque semaine en automatisant ces 5 processus clés avec des outils no-code comme Make (Integromat) ou n8n. Cas concrets et templates inclus.",
@@ -40,24 +39,24 @@ const BlogPage = () => {
   ];
 
   return (
-    <div className="py-24 md:py-32 space-y-24 md:space-y-32">
+    <div className="py-20 md:py-32 space-y-20 md:space-y-32">
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'circOut' }}
-          className="text-center mb-20"
+          className="text-center mb-16 md:mb-20"
         >
-          <Rss className="w-20 h-20 text-orange-400 mx-auto mb-8" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
+          <Rss className="w-16 h-16 text-orange-400 mx-auto mb-6" />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-white">
             Notre <span className="gradient-text">Blog IA</span> & Automatisation
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Articles, analyses, tutoriels : toutes les clés pour comprendre et exploiter l'IA au service de votre PME.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.id}
@@ -65,25 +64,29 @@ const BlogPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: index * 0.1, ease: 'circOut' }}
-              className="glass-effect rounded-2xl flex flex-col shadow-xl hover:shadow-orange-500/30 overflow-hidden"
+              className="glass-effect rounded-xl flex flex-col shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300 overflow-hidden"
             >
-              <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <span className="inline-block bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-xs font-semibold mb-3 self-start">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full aspect-[4/3] object-cover"
+              />
+              <div className="p-5 md:p-6 flex flex-col flex-grow">
+                <span className="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-medium mb-2 w-fit">
                   {post.category}
                 </span>
-                <h2 className="text-2xl font-semibold mb-3 text-gray-100 hover:text-orange-300 transition-colors">
+                <h2 className="text-xl font-semibold mb-2 text-white hover:text-orange-400 transition-colors">
                   <Link to={`/ressources/blog/${post.id}`}>{post.title}</Link>
                 </h2>
-                <p className="text-sm text-gray-400 mb-4">{post.date}</p>
-                <p className="text-gray-300 leading-relaxed mb-6 flex-grow">{post.excerpt}</p>
+                <p className="text-xs text-gray-500 mb-3">{post.date}</p>
+                <p className="text-sm text-gray-300 mb-6 leading-relaxed flex-grow">{post.excerpt}</p>
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full mt-auto border-orange-500 text-orange-400 hover:bg-orange-500/10 rounded-lg"
+                  className="mt-auto border-orange-500 text-orange-400 hover:bg-orange-500/10 rounded-md text-sm"
                 >
                   <Link to={`/ressources/blog/${post.id}`}>
-                    Lire l'article <ArrowRight className="w-4 h-4 ml-2" />
+                    Lire l'article <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </Button>
               </div>
