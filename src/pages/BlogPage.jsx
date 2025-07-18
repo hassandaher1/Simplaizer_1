@@ -14,7 +14,7 @@ const BlogPage = () => {
         "Découvrez comment l'IA générative, de ChatGPT aux outils de création d'images, peut révolutionner vos processus marketing, créatifs et opérationnels...",
       category: "Tendances IA",
       image:
-        "https://images.unsplash.com/photo-1679085294689-815d11595819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWklMjBjb25jZXB0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+        "https://images.unsplash.com/photo-1679085294689-815d11595819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60"
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const BlogPage = () => {
         "Gagnez des heures chaque semaine en automatisant ces 5 processus clés avec des outils no-code comme Make (Integromat) ou n8n. Cas concrets et templates inclus.",
       category: "Automatisation",
       image:
-        "https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGF1dG9tYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+        "https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60"
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const BlogPage = () => {
         "Maîtrisez l'art de 'parler' aux IA comme ChatGPT pour obtenir des résultats bluffants. Astuces, exemples et erreurs à éviter pour des prompts parfaits.",
       category: "Prompting",
       image:
-        "https://images.unsplash.com/photo-1678054460990-399a19853962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNoYXRncHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+        "https://images.unsplash.com/photo-1678054460990-399a19853962?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60"
     }
   ];
 
@@ -47,7 +47,7 @@ const BlogPage = () => {
           transition={{ duration: 0.8, ease: 'circOut' }}
           className="text-center mb-16 md:mb-20"
         >
-          <Rss className="w-16 h-16 text-blue-500-400 mx-auto mb-6" />
+          <Rss className="w-16 h-16 text-blue-400 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-white">
             Notre <span className="gradient-text">Blog IA</span> & Automatisation
           </h1>
@@ -72,10 +72,10 @@ const BlogPage = () => {
                 className="w-full aspect-[4/3] object-cover"
               />
               <div className="p-5 md:p-6 flex flex-col flex-grow">
-                <span className="bg-blue-500-500/20 text-blue-300-400 px-3 py-1 rounded-full text-xs font-medium mb-2 w-fit">
+                <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium mb-2 w-fit">
                   {post.category}
                 </span>
-                <h2 className="text-xl font-semibold mb-2 text-white hover:text-blue-300-400 transition-colors">
+                <h2 className="text-xl font-semibold mb-2 text-white hover:text-blue-300 transition-colors">
                   <Link to={`/ressources/blog/${post.id}`}>{post.title}</Link>
                 </h2>
                 <p className="text-xs text-gray-500 mb-3">{post.date}</p>
@@ -83,7 +83,7 @@ const BlogPage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-auto border-l-blue-700-500 text-blue-500-400 hover:bg-blue-500/10 rounded-md text-sm"
+                  className="mt-auto border-blue-500 text-blue-400 hover:bg-blue-500/10 rounded-md text-sm"
                 >
                   <Link to={`/ressources/blog/${post.id}`}>
                     Lire l'article <ArrowRight className="w-4 h-4 ml-1" />
